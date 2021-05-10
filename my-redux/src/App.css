@@ -1,0 +1,126 @@
+/* ************ navbar styling************************888 */
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: aquamarine;
+  box-shadow: 0 4px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 400;
+  color: white;
+
+}
+.cart-shower {
+  display: flex;
+}
+.cart-icon {
+  margin-top: 20px;
+  color: rgb(116, 66, 70);
+  font-weight: 400;
+}
+.cart-amount-circle {
+  height: 40px;
+  width: 40px;
+  border-radius: 1.5rem;
+  background-color: rgb(202, 247, 232);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+}
+
+
+/* ****************** cart item styling ******************* */
+.cart-container {
+  width: 80%;
+  height: min-content;
+  margin-left: 7.5%;
+  margin-top: 3%;
+  box-shadow: 0 4px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  padding: 2rem;
+}
+.cart-container-box {
+  display: flex;
+  justify-content: space-between;
+}
+.item-container {
+  display: flex;
+}
+.title-price-button {
+  padding: 20px;
+  margin-top: -15px;
+}
+.title-price-button button {
+  background-color: white;
+  cursor: pointer;
+}
+.title-price-button button:hover {
+  background-color: rgb(172, 130, 130);
+}
+.title-price-button:nth-child(2) {
+  line-height: 0.2rem;
+}
+.item-container img{
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+.handle-amount {
+  margin-right: 10%;
+  display: flex;
+  padding: 10px;
+
+}
+.amount {
+  padding: 10px;
+  margin-top: -15px;
+  font-size: 1.5rem;
+}
+.handle-plus button {
+  background-color: rgb(126, 57, 57);
+  color: aliceblue;
+  cursor: pointer;
+}
+.handle-plus button:hover {
+  background-color: slateblue;
+}
+.handle-minus button {
+  background-color: slateblue;
+  color: aliceblue;
+  cursor: pointer;
+}
+.handle-minus button:hover {
+  background-color: rgb(126, 57, 57);;
+}
+/* Total calculation part */
+.total-calculation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.total-text {
+  margin-left: 5%;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.total-amount {
+  margin-right: 14%;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.clear-cart-button {
+  padding: 5px;
+  background-color: rgb(180, 31, 31);
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.clear-cart-button:hover {
+  background-color: white;
+  color: black;
+}

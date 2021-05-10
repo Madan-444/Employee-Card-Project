@@ -1,0 +1,14 @@
+{
+  "name": "jsonserver",
+  "version": "1.0.0",
+  "description": "Frontend Intern Task",
+  "main": "index.js",
+  "scripts": {
+    "json:server": "json-server --watch employee_data.json"
+  },
+  "author": "Madan Rijal Magar",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}
