@@ -1,0 +1,203 @@
+@import 'reset';
+@import 'variables';
+@import 'function';
+
+// body {
+//     background-color: color(color-primary);
+//     // overflow-x: hidden;
+// }
+nav {
+    height: 5rem;
+    // width: 100vw;
+    background-color: color(nav-bg-color);
+    box-shadow: 0 4px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 70vw;
+    }
+    
+    .nav-container a {
+        color: white;
+        font-family: "Montserrat:ital";
+        font-weight: 500;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+}
+.homepage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    #{&}-loading {
+        height: 100vh;
+        width: 50vh;
+        h2 {
+            margin-top: 3rem;
+            font-size: 5rem;
+            color: white;
+            
+        }
+    }
+ 
+}
+.homepage-employee__details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    // background-color: rgba(0, 0, 126, 0.329);
+    height: 100vh;
+    width: 95vw;
+
+}
+section {
+    display: flex;
+    justify-content: center;
+
+    .card-container {
+        background-color: rgba(189, 189, 2, 0.801);
+        margin: 10px;
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 10px;
+        
+        flex-direction: column;
+        height: 500px;
+        width: 400px;
+        margin-bottom: 30px;
+        // margin-left: 10px;
+
+    }
+}
+.card-container > div {
+    // background-color: green;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+.card-container__details {
+    // background-color: green;
+    // padding-top: (1rem + 0.5vw);
+    padding: 20px;
+    // color: rgba(78, 35, 35, 0.815);
+    font-size: 1.2rem;
+    #{&}--heading {
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding-bottom: 20px;
+    }
+    p {
+        color: black;
+        line-height: 1.8rem;
+    }
+
+}
+
+.card-container__buttons {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+   
+    // justify-content: space-around;
+    #{&}--items {
+        display: flex;
+        height: inherit;
+        width: inherit;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+.card-container__buttons--items-first,
+.card-container__buttons--items-second {
+    padding: 5px;
+    border: 5px;
+    font-size: 1.2rem;
+}
+
+// Style Add employee section
+
+.form-container {
+    height: 100vh;
+    // width: 100vw;
+    // background-color: green;
+    display: flex;
+    justify-content: center;
+
+}
+.form-container > div {
+    margin-top: 20px;
+    height: 100vh;
+    // width: 90vw;
+    // background-color: green;
+}
+form {
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    label {
+        color: rgb(22, 22, 7);
+        font-size: 1.5rem;
+        margin-left: -273px;
+        position: relative;
+        
+    }
+    .name, .email {
+        margin-left: -365px;
+    }
+    .company {
+        margin-left: -330px;
+    }
+    .address {
+        margin-left: -350px;
+    }
+    .image {
+        margin-left: -350px;
+    }
+ 
+    
+    input {
+        padding: 10px;
+        width: calc(10rem + 20vw);
+        margin-bottom: 20px;
+        // height: ;
+    }
+}
+.img-container {
+    position: absolute;
+    background-color: purple;
+    top: 340px;
+    left: 500px;
+    img {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        
+        
+    }
+    button {
+        width: 100%;
+        cursor: pointer;
+    }
+
+}
+.uploadImg {
+    padding: 10px;
+    // width: calc(10rem + 20vw);
+}
