@@ -4,6 +4,9 @@ export const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE'
 export const GET_IMG = 'GET_IMG'
 export const UPLOAD_IMG = "UPLOAD_IMG"
 
+// employee added to reset the store
+export const EMPLOYEE_ADDED = "EMPLOYEE_ADDED"
+
 // for form Input
 
 export const NAME_INPUT = "NAME_INPUT"

@@ -1,4 +1,4 @@
-import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, UPLOAD_IMG,EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE, MAKE_EOM, REMOVE_EOM } from "./actionType"
+import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, UPLOAD_IMG,EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE, MAKE_EOM, REMOVE_EOM,EMPLOYEE_ADDED } from "./actionType"
 import axios from 'axios'
 
 export const fetchUsersRequest = ()=> {
@@ -155,6 +155,9 @@ export const handleSubmit = (name,email,address,phone_no,company,imgUrl)=> {
             // dispatch(fetchUsersSuccess(res.data))
           console.log("The res from json", res);
             alert("The new Employee is Added. Great!")
+            dispatch({
+                type: EMPLOYEE_ADDED
+            })
         })
         .catch((error) => {
           console.log("The error from the cloudinary", error);

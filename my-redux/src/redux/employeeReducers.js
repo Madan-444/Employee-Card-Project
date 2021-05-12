@@ -1,4 +1,4 @@
-import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE, MAKE_EOM, REMOVE_EOM } from "./actionType"
+import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE, MAKE_EOM, REMOVE_EOM,EMPLOYEE_ADDED } from "./actionType"
 
 
 const initialState = {
@@ -42,6 +42,18 @@ const employeeReducers = (state = initialState,action)=> {
         console.log("The img file from editing cmp",action.payload.myImg)
         return {...state,
         myImg: action.payload.myImg}
+    }
+
+    if(action.type === EMPLOYEE_ADDED) {
+        return {
+            ...state,
+            name: '',
+            myEmail: "",
+            myAddress: "",
+            myPhone_no: "",
+            myCompany: ""
+
+        }
     }
     // Handle input forms
     if(action.type === NAME_INPUT) {
