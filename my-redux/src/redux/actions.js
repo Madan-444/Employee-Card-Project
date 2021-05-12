@@ -1,4 +1,4 @@
-import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, UPLOAD_IMG,EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE } from "./actionType"
+import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, UPLOAD_IMG,EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE, MAKE_EOM, REMOVE_EOM } from "./actionType"
 import axios from 'axios'
 
 export const fetchUsersRequest = ()=> {
@@ -91,6 +91,26 @@ export const uploadSuccess = ()=> {
 export const editEmployee = id=> {
     return {
         type: EDIT_EMPLOYEE,
+        payload: {
+            id
+        }
+    }
+}
+
+// make employee of the months
+export const makeEmployeeOM = id=> {
+    return {
+        type: MAKE_EOM,
+        payload: {
+            id
+        }
+    }
+}
+
+// remove from the eom
+export const removeFromEOm = id=> {
+    return {
+        type: REMOVE_EOM,
         payload: {
             id
         }
@@ -190,6 +210,7 @@ export const handleDelete = (id)=> {
             // dispatch(fetchUsersSuccess(res.data))
           console.log("The res from json", res);
         alert("The item is deleted. Great")
+        window.location.reload(true);
 
         })
         .catch((error) => {

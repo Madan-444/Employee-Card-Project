@@ -276,8 +276,15 @@ form input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  top: 340px;
-  left: 500px;
+  top: 400px;
+  left: calc(250px + 20vw);
+}
+
+@media screen and (max-width: 1000px) {
+  .img-container {
+    top: 500px;
+    left: 150px;
+  }
 }
 
 .img-container .img-container-box-1,
@@ -309,6 +316,12 @@ form input {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1000px) {
+  .post-btn {
+    margin-top: 100px;
+  }
+}
+
 .post-btn::before {
   content: "";
   position: absolute;
@@ -335,5 +348,87 @@ form input {
 
 .post-btn {
   z-index: 1;
+}
+
+.employee-ofMonth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px;
+}
+
+.employee-ofMonth .employee-ofMonth__img {
+  margin-right: 30px;
+}
+
+.employee-ofMonth .employee-ofMonth__text {
+  font-size: 1.3rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 5px #2438ec;
+          box-shadow: 0 5px 5px #2438ec;
+  background-color: rgba(255, 8, 8, 0.596);
+  padding: 10px;
+}
+
+.employee-ofMonth .employee-ofMonth__text span {
+  font-size: 2rem;
+  padding: 1rem;
+  color: yellow;
+}
+
+.employee-ofMonth .employee-ofMonth__text h6 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #f7f4ef;
+}
+
+.employee-ofMonth img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (max-width: 800px) {
+  .employee-ofMonth {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.employee-ofMonth-btn > button {
+  padding: 8px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.582);
+}
+
+.employee-ofMonth-btn > button:hover {
+  background-color: burlywood;
+}
+
+.employee-ofMonth__text--value {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-right: 10%;
+}
+
+.empty-eom {
+  margin-left: 20vw;
+  margin-top: 20px;
+  padding: 50px;
+  height: 50vh;
+  width: 50vw;
+  background-color: yellow;
 }
 /*# sourceMappingURL=App.css.map */

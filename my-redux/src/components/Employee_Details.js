@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux'
-import {editEmployee,handleDelete} from "../redux/actions"
+import {editEmployee,handleDelete,makeEmployeeOM} from "../redux/actions"
 
 function Employee_Details({
   id,
@@ -13,6 +13,7 @@ function Employee_Details({
   phone_no,
   editEmployee,
   handleDelete,
+  makeEmployeeOM,
 }) {
   return (
     <section key={id} className="card">
@@ -46,7 +47,7 @@ function Employee_Details({
           </div>
          </form>
           <div>
-            <button className='card-container__buttons--items-third'>Make EOF</button>
+            <button className='card-container__buttons--items-third' onClick={()=> makeEmployeeOM(id)}>Make EOF</button>
           </div>
         </div>
        </div>
@@ -55,4 +56,4 @@ function Employee_Details({
   );
 }
 
-export default connect(null, {editEmployee,handleDelete}) (Employee_Details);
+export default connect(null, {editEmployee,handleDelete,makeEmployeeOM}) (Employee_Details);

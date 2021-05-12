@@ -1,3 +1,49 @@
 {
-  "employee": []
+  "employee": [
+    {
+      "employee_name": "Madan Rijal",
+      "email": "mmadan@gmail.com",
+      "phone_no": "9967789345",
+      "address": "Thimi Nepal",
+      "company": "Samsung Company",
+      "image": "https://res.cloudinary.com/dees63q5v/image/upload/v1620725577/ovpzt3wazvczvh7wppkw.jpg",
+      "id": 1
+    },
+    {
+      "employee_name": "Shreya Tamang",
+      "email": "shreya232@gmail.com",
+      "phone_no": "9989789345",
+      "address": "Lalitpur, Nepal",
+      "company": "Apple Company",
+      "image": "https://res.cloudinary.com/dees63q5v/image/upload/v1620803741/ivbntqipptrvin2mtvyl.jpg",
+      "id": 3
+    },
+    {
+      "employee_name": "Bibek Koerala",
+      "email": "bibek23@gmail.com",
+      "phone_no": "9808789345",
+      "address": "Thimi Nepal",
+      "company": "Apple Company",
+      "image": "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg",
+      "id": 4
+    },
+    {
+      "employee_name": "Diwas Kale",
+      "email": "diwas23243@gmail.com",
+      "phone_no": "9846564564",
+      "address": "Pokhara, Nepal",
+      "company": "Microsoft Comapay",
+      "image": "https://res.cloudinary.com/dees63q5v/image/upload/v1620797742/ozzv3rq2eqk2gfh8rjjg.jpg",
+      "id": 5
+    },
+    {
+      "employee_name": "Anusma Karki",
+      "email": "anusma372@gmail.com",
+      "phone_no": "9846564564",
+      "address": "Kathmandu, Nepal",
+      "company": "F1Soft Comapay",
+      "image": "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883409/person-2_np9x5l.jpg",
+      "id": 5
+    }
+  ]
 }

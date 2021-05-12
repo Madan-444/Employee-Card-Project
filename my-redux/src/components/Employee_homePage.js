@@ -8,7 +8,7 @@ const mapStateToProps = store => {
     return {loading,users,error}
 }
 
-function Employee_homePage({loading,users,error,fetchEmployee}) {
+function Employee_homePage({loading,users,fetchEmployee}) {
 
     useEffect(()=> {
         fetchEmployee()

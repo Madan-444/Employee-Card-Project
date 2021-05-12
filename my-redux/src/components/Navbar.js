@@ -8,12 +8,10 @@ function Navbar() {
       <nav>
         <div className="nav-container">
           <p>
-            <a href="/">Home</a>
-            {/* <Link to="/">Home</Link> */}
+            <Link to="/">Home</Link>
           </p>
           <p>
-            <a href="#">Employee Of Month</a>
-            {/* <Link to="/home-page">Employee Of Month</Link> */}
+            <Link to="/employeeOf-month">Employee Of Month</Link>
           </p>
           <p>
             <Link to='/add-employee'>Add New Employee</Link>

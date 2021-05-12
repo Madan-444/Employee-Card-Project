@@ -200,12 +200,22 @@ form {
         // height: ;
     }
 }
+$bpMobile: 1000px;
+@mixin media-mobile {
+    @media screen and (max-width: $bpMobile){
+        @content;
+    }
+}
 .img-container {
     position: absolute;
     background-color: purple;
     display: flex;
-    top: 340px;
-    left: 500px;
+    top: 400px;
+    left: calc(250px + 20vw);
+    @include media-mobile {
+        top: 500px;
+        left: 150px;
+    }
     #{&}-box-1,
     #{&}-box-2 {
         height: 150px;
@@ -218,6 +228,7 @@ form {
         
     }
     button {
+        // margin-top: 500px;
         width: 100%;
         cursor: pointer;
     }
@@ -232,6 +243,9 @@ form {
     font-size: 1.2rem;
     position: relative;
     cursor: pointer;
+    @include media-mobile {
+        margin-top: 100px;
+    }
 }
 .post-btn::before {
     content: "";
@@ -252,4 +266,71 @@ form {
 }
 .post-btn {
     z-index: 1;
+}
+// styling employee of the months
+$bpMobile-2: 800px;
+@mixin media-mobile-2 {
+    @media screen and (max-width: $bpMobile-2){
+        @content;
+    }
+}
+.employee-ofMonth {
+    display: flex;
+    margin: 50px;
+    #{&}__img {
+        margin-right: 30px;
+        // background-color: blue;
+    }
+    #{&}__text {
+        font-size: 1.3rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 5px rgb(36, 56, 236);
+        background-color: rgba(255, 8, 8, 0.596);
+        padding: 10px;
+        span {
+            font-size: 2rem;
+            padding: 1rem;
+            color: yellow;
+            
+        }
+        h6 {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: rgb(247, 244, 239);
+        }
+    }
+    img {
+        object-fit: cover;
+    }
+    @include media-mobile-2 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+.employee-ofMonth-btn > button {
+    padding: 8px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.582);
+    &:hover {
+        background-color: burlywood;
+    }
+}
+
+.employee-ofMonth__text--value {
+    // padding: 20px;
+    margin-top: 50px;
+    // background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10%;
+
+}
+.empty-eom {
+    margin-left: 20vw;
+    margin-top: 20px;
+    padding: 50px;
+    height: 50vh;
+    width: 50vw;
+    background-color: yellow;
 }

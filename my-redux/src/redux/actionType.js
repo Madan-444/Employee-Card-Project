@@ -19,3 +19,11 @@ export const UPLOAD_SUCCESS = "UPLOAD_SUCCESS"
 // edit employee details
 
 export const EDIT_EMPLOYEE = "EDIT_EMPLOYEE"
+
+// make employe of the month
+
+export const MAKE_EOM = "MAKE_EOM"
+
+// remove from eom
+
+export const REMOVE_EOM = "REMOVE_EOM"

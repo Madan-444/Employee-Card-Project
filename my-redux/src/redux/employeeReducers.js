@@ -1,4 +1,4 @@
-import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE } from "./actionType"
+import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE, MAKE_EOM, REMOVE_EOM } from "./actionType"
 
 
 const initialState = {
@@ -13,6 +13,7 @@ const initialState = {
     myCompany: "",
     uploaded: false,
     editingEmployee:[],
+    employeeOM:[],
 
 }
 
@@ -87,6 +88,37 @@ const employeeReducers = (state = initialState,action)=> {
         return {
             ...state,
             editingEmployee:myEditingEmployee
+        }
+    }
+    // to find employee of the month
+    if(action.type === MAKE_EOM){
+        // let newArray = []
+       state.users.map((item)=> {
+
+        if(action.payload.id === item.id) {
+          
+            if(state.employeeOM.length <2) {
+                alert("The new employee is made EOM")
+            state.employeeOM.push(item);
+            }
+            else {
+                alert("The eom is already maximum.")
+            }
+            console.log("The length",state.employeeOM.length)
+            
+        }
+
+       })
+        return {...state}
+    }
+
+    // remove employee from eom
+    if(action.type === REMOVE_EOM) {
+        let newEomList = state.employeeOM.filter((item)=> action.payload.id !== item.id)
+        console.log("The id",action.payload.id)
+        return {
+            ...state,
+            employeeOM: newEomList
         }
     }
  
