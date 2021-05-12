@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
+import {editEmployee,handleDelete} from "../redux/actions"
 
 function Employee_Details({
   id,
@@ -8,6 +11,8 @@ function Employee_Details({
   address,
   company,
   phone_no,
+  editEmployee,
+  handleDelete,
 }) {
   return (
     <section key={id} className="card">
@@ -30,10 +35,18 @@ function Employee_Details({
        <div className='card-container__buttons'>
        <div className="card-container__buttons--items">
           <div>
-            <button className='card-container__buttons--items-first'>Edit Employee</button>
+            <Link to="/edit-employee"><button className='card-container__buttons--items-first' onClick={()=> editEmployee(id)} >Edit Employee</button></Link>
           </div>
+         <form>
+         <div>
+            <button className='card-container__buttons--items-second' onClick={(e)=> {
+              handleDelete(id);
+              e.preventDefault();
+            }}  >Delete Employee</button>
+          </div>
+         </form>
           <div>
-            <button className='card-container__buttons--items-second'>Make EOF</button>
+            <button className='card-container__buttons--items-third'>Make EOF</button>
           </div>
         </div>
        </div>
@@ -42,4 +55,4 @@ function Employee_Details({
   );
 }
 
-export default Employee_Details;
+export default connect(null, {editEmployee,handleDelete}) (Employee_Details);

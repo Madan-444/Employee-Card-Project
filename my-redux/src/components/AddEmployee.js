@@ -9,33 +9,34 @@ import {
   companyInput,
   phoneNoInput,
   addressInput,
+  uploadSuccess,
 } from "../redux/actions";
 import { handleSubmit } from "../redux/actions";
 import Navbar from "./Navbar";
 
 const mapStateToProps = (store) => {
-  const { myImg, name, email, address, phone_no, company } = store;
-  return { myImg, name, email, address, phone_no, company };
+  const { myImg, name, myEmail,myAddress, myPhone_no, myCompany,uploaded } = store;
+  return { myImg, name, myEmail, myAddress, myPhone_no, myCompany,uploaded };
 };
 
 function AddEmployee({
   getImg,
   myImg,
   name,
-  email,
-  address,
+  myEmail,
+  myAddress,
   nameInput,
   emailInput,
-  phone_no,
-  company,
+  myPhone_no,
+  myCompany,
   companyInput,
   phoneNoInput,
   addressInput,
   handleSubmit,
+  uploadSuccess,
+  uploaded,
 }) {
-  // console.log("The name",name)
-
-  // const [myImg,setMyImg] = useState(null);
+  
   const [imgUrl, setImgUrl] = useState(null);
   console.log("The image url", imgUrl);
   const handleUplod = (e) => {
@@ -43,19 +44,23 @@ function AddEmployee({
     const formData = new FormData();
     formData.append("file", myImg);
     formData.append("upload_preset", "fbwckdsb");
+    alert("The image is uploading. Please wait.")
     axios
       .post("https://api.cloudinary.com/v1_1/dees63q5v/upload", formData)
       .then((res) => {
-        console.log("The res from cloudinary", res.data);
+        // console.log("The res from cloudinary", res.data);
+        
         setImgUrl(res.data.url);
+        
+        uploadSuccess(true)
       })
       .catch((error) => {
         console.log("The error from the cloudinary", error);
       });
   };
-  const handleForm = (e, name, email, address, phone_no, company, imgUrl) => {
+  const handleForm = (e, name, myEmail, myAddress, myPhone_no, myCompany, imgUrl) => {
     e.preventDefault();
-    handleSubmit(name, email, address, phone_no, company, imgUrl);
+    handleSubmit(name, myEmail, myAddress, myPhone_no, myCompany, imgUrl);
   };
   return (
     <div>
@@ -79,48 +84,51 @@ function AddEmployee({
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleSubmit(name, email, address, phone_no, company, imgUrl);
+            handleSubmit(name, myEmail, myAddress, myPhone_no, myCompany, imgUrl);
           }}
         >
           <label className="name">Name</label><br />
           <input
             type="text"
-            value={name} placeholder="Enter Name"
+            value={name} placeholder="Enter Name" required={true}
             onChange={(e) => nameInput(e.target.value)}
           />
           <label className="email">Email</label><br />
           <input
             type="email"
-            value={email} placeholder="Enter Email"
+            value={myEmail} placeholder="Enter Email" required={true}
             onChange={(e) => emailInput(e.target.value)}
           />
           <label className="company">Company</label>
           <input
             type="text"
-            value={company}  placeholder="Enter Company"
+            value={myCompany}  placeholder="Enter Company" required={true}
             onChange={(e) => companyInput(e.target.value)}
           />
           <label htmlFor="number" >Phone Number</label>
           <input
-            type="text"
-            value={phone_no} onkeypress="return onlyNumberKey(event)" 
-            maxlength="10"
+            type="text" required={true}
+            value={myPhone_no}  
+            maxLength="10"
             placeholder="Enter Ph. Number"
             onChange={(e) => phoneNoInput(e.target.value)}
           />
           <label className="address">Address</label>
           <input
-            type="address"
-            value={address}  placeholder="Enter Address"
+            type="address" required={true}
+            value={myAddress}  placeholder="Enter Address"
             onChange={(e) => addressInput(e.target.value)}
           />
           <label className='image'>Image</label>
-          <input  type="file" onChange={(e) => getImg(e.target.files[0])} />
+          <input  type="file" required={true} onChange={(e) => getImg(e.target.files[0])} />
           <div className="img-container">
-            <img src={imgUrl} />
-          <button className='uploadImg' onClick={handleUplod}>Upload Imgae</button>
+            <div className='img-container-box'>
+            <img src={imgUrl} alt="  image here" />
+            </div>
+            
+          {!uploaded? <button className='uploadImg' onClick={handleUplod}>Upload Imgae</button>: <button className='uploadImg'>Image Uploaded</button>}
           </div>
-          <button type="submit">Dont Toch Me</button>
+          {uploaded && <button type="submit" className="post-btn">Post New Employee</button>}
         </form>
         </div>
       </div>
@@ -139,6 +147,7 @@ const mapDispatchToProps = (dispatch) => {
     addressInput: (address) => dispatch(addressInput(address)),
     handleSubmit: (name, email, address, phone_no, company, imgUrl) =>
       dispatch(handleSubmit(name, email, address, phone_no, company, imgUrl)),
+      uploadSuccess: ()=> dispatch(uploadSuccess())
   };
 };
 

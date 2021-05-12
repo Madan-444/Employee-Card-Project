@@ -1,4 +1,4 @@
-import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, UPLOAD_IMG,EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT } from "./actionType"
+import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, GET_IMG, NAME_INPUT, UPLOAD_IMG,EMAIL_INPUT,COMPANY_INPUT,PHONE_NO_INPUT,ADDRESS_INPUT, UPLOAD_SUCCESS, EDIT_EMPLOYEE } from "./actionType"
 import axios from 'axios'
 
 export const fetchUsersRequest = ()=> {
@@ -80,6 +80,22 @@ export const addressInput = (address)=> {
         }
     }
 }
+// To hide the post new employee button
+export const uploadSuccess = ()=> {
+    return {
+        type: UPLOAD_SUCCESS
+    }
+}
+// to edit employee details
+
+export const editEmployee = id=> {
+    return {
+        type: EDIT_EMPLOYEE,
+        payload: {
+            id
+        }
+    }
+}
 
 
 
@@ -118,14 +134,66 @@ export const handleSubmit = (name,email,address,phone_no,company,imgUrl)=> {
         .then((res) => {
             // dispatch(fetchUsersSuccess(res.data))
           console.log("The res from json", res);
-        //   dispatch({
-        //       type:"ADD_USER",
-        //       payload: res.data
-        //   })
-          // setImgUrl(res.data.url);
+            alert("The new Employee is Added. Great!")
         })
         .catch((error) => {
           console.log("The error from the cloudinary", error);
+        });
+       
+    }
+
+}
+
+// Edit employee 
+export const handleEditSubmit = (id,name,myEmail,myAddress, myPhone_no, myCompany,imgUrl)=> {
+    console.log("The handle edit  is called")
+    const myPost =   {
+        "employee_name": `${name}`,
+        "email": `${myEmail}`,
+        "phone_no": `${myPhone_no}`,
+        "address": `${myAddress}`,
+        "company": `${myCompany}`,
+        "image": `${imgUrl}`,
+    }
+    console.log("my post",myPost)
+    const url = `http://localhost:3000/employee/${id}`
+    console.log("The url:",url)
+
+    return (dispatch)=> {
+        
+
+        axios.put(url,myPost)
+        .then((res) => {
+            // dispatch(fetchUsersSuccess(res.data))
+        //   console.log("The res from json", res);
+        alert("The item is edited. Great")
+
+        })
+        .catch((error) => {
+          console.log("The error white putting ", error);
+        });
+       
+    }
+
+}
+
+// Delete employee
+export const handleDelete = (id)=> {
+    const url = `http://localhost:3000/employee/${id}`
+    console.log("The url:",url)
+
+    return (dispatch)=> {
+        
+
+        axios.delete(url)
+        .then((res) => {
+            // dispatch(fetchUsersSuccess(res.data))
+          console.log("The res from json", res);
+        alert("The item is deleted. Great")
+
+        })
+        .catch((error) => {
+          console.log("The error white deleting ", error);
         });
        
     }

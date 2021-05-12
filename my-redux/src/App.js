@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import AddEmployee from "./components/AddEmployee";
 import Navbar from "./components/Navbar";
+import EditEmployee from "./components/EditEmployee";
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
     <Switch>
         <Route path = '/' exact component = {Navbar} />
         <Route path = '/add-employee' exact component = {AddEmployee} />
+        <Route path = '/edit-employee' exact component = {EditEmployee} />
+        
 
     </Switch>
     </BrowserRouter>

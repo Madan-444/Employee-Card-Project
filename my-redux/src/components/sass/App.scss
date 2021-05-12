@@ -122,10 +122,31 @@ section {
     }
 }
 .card-container__buttons--items-first,
-.card-container__buttons--items-second {
+.card-container__buttons--items-second,
+.card-container__buttons--items-third {
     padding: 5px;
     border: 5px;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
+    cursor: pointer;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(78, 29, 192, 0.801);
+        transform: scale(0);
+        transform-origin: left;
+        transition: transform 0.5s cubic-bezier(1, 0, 0, 1);
+        z-index: -1;
+    }
+    &:hover::before {
+        transform: scale(1);
+        z-index: 1;
+        color: white;
+    }
 }
 
 // Style Add employee section
@@ -182,13 +203,18 @@ form {
 .img-container {
     position: absolute;
     background-color: purple;
+    display: flex;
     top: 340px;
     left: 500px;
+    #{&}-box-1,
+    #{&}-box-2 {
+        height: 150px;
+        width: 150px;
+    } 
     img {
         height: 150px;
         width: 150px;
         object-fit: cover;
-        
         
     }
     button {
@@ -200,4 +226,30 @@ form {
 .uploadImg {
     padding: 10px;
     // width: calc(10rem + 20vw);
+}
+.post-btn {
+    padding: 10px;
+    font-size: 1.2rem;
+    position: relative;
+    cursor: pointer;
+}
+.post-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(46, 46, 18, 0.548);
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+    
+}
+.post-btn:hover::before {
+    transform: scale(1);
+}
+.post-btn {
+    z-index: 1;
 }

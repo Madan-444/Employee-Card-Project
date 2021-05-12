@@ -13,7 +13,7 @@ function Employee_homePage({loading,users,error,fetchEmployee}) {
     useEffect(()=> {
         fetchEmployee()
         console.log("The useEffect ran")
-    },[])
+    },[users.length])
     console.log("The loading",users)
     return (
         <div className="homepage">
