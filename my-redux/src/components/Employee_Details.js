@@ -47,7 +47,7 @@ function Employee_Details({
           </div>
          </form>
           <div>
-            <button className='card-container__buttons--items-third' onClick={()=> makeEmployeeOM(id)}>Make EOF</button>
+            <button className='card-container__buttons--items-third' onClick={()=> makeEmployeeOM(id)}>Make EOM</button>
           </div>
         </div>
        </div>
